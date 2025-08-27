@@ -1,28 +1,62 @@
 @use '../abstracts/variables';
 
 .header__nav {
-  height: variables.$nav-height;
-  background-color: variables.$primary-color;
   display: flex;
+  background-color: variables.$primary-color;
+  height: 12rem;
   align-items: center;
-  justify-content: center;
-  &-list {
+  .header__logo {
+    margin-left: 5rem;
+    width: 6.4rem;
+    height: 6.4rem;
+  }
+  .header__nav-list {
     display: flex;
-    list-style: none;
-    gap: 2rem;
-    padding: 0;
-    margin: 0;
-    .header__nav-items {
-      a {
-        text-decoration: none;
-        color: variables.$text-color;
-        font-family: variables.$font-family;
-        font-weight: bold;
-        transition: color 0.3s;
-        &:hover {
-          color: variables.$secondary-color;
-        }
-      }
+    justify-content: space-evenly;
+    width: 100%;
+    a {
+      font-weight: 700;
+      transition: all ease-in-out 0.2s;
     }
+
+    a:hover {
+      color: darken(variables.$primary-color, 20%);
+    }
+  }
+}
+
+.header__hero-section {
+  display: grid;
+  background-color: variables.$primary-color;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    'heading'
+    'subheading'
+    'text';
+  gap: 1rem;
+  padding: 1.2rem;
+
+  .header__heading-primary {
+    justify-self: center;
+    display: inline-block;
+    align-self: center;
+    font-size: 4rem;
+    grid-area: heading;
+    padding: 2.4rem;
+  }
+  .header__subheading {
+    grid-area: subheading;
+    text-align: center;
+    color: variables.$subheadings;
+    margin-top: 1.2rem;
+  }
+  .header__text {
+    grid-area: text;
+    width: 70%;
+    justify-self: center;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin-top: 1.2rem;
   }
 }
